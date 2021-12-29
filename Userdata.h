@@ -3,7 +3,7 @@
 #define JOINT_PROJECTS_USERDATA_H
 
 #include <string.h>
-#include <iostream>
+//#include <iostream>
 #include "BigInt.h"
 
 using namespace std;
@@ -38,7 +38,7 @@ class Userdata{
 
         //sets the user's clicks
         void setUserClicks(BigInt x){
-            userClicks= x;
+            userClicks = x;
         };
 
         //sets the user's passive multiplier
@@ -53,7 +53,7 @@ class Userdata{
         
         //adds to the user's clicks
         void addtoUserClicks(BigInt x){
-            userClicks= (userClicks + x);
+            userClicks = (userClicks + x);
         };
 
         //adds to the Passive Multiplier
@@ -65,6 +65,12 @@ class Userdata{
         void addtoClickMulitplier(double x){
             clickMultiplier += x;
         };
+        
+        //subs to the click multiplier
+        void subtoUserClicks(BigInt x){
+            userClicks = (userClicks - x);
+        };
+        
         
 };
 #endif //JOINT_PROJECTS_USERDATA_H

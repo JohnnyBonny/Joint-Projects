@@ -4,42 +4,80 @@
 #include <windows.h>
 #include "BigInt.h"
 #include <string.h>
+#include <time.h> 
+#include "Shop.h"
+
+#define JOINT_PROJECTS_CLICKERGAME_CPP
 
 using namespace std;
 
+Userdata myscore = Userdata();
+
+int userInput;
+
+Shop userShop = Shop();
+
+int numberOfClicks = 0;
+
+
+
+
 void executeClicks(){
     while (1){
-        if (GetAsyncKeyState(0x01)){
-            cout << "Left Mkey";
+        if (GetAsyncKeyState(0x01)){ //left mouse key   
+            numberOfClicks++;
+            cout << "Left Mkey" ;
+            
             Sleep(100);
-        } else if (GetAsyncKeyState(0x09))
+            /* To check that it doesnt go the max int
+            if(numberOfClicks + (myscore.getClickMulitplier()) >= INT_MAX){
+            }
+            */
+        } 
+        else if (GetAsyncKeyState(0x09)) //tab      
             break;
     }
-
     getch();
 }
 
+void menu(){
+    while(1){
+        cout << "1)Get upgrades at the shop" << endl;
+        cout << "2)Show Your Clicks" << endl;
+        cout << "3)CLICK!!!" << endl;
+        cout << "4)Exit Game" << endl;
+        cout << "Please select an option" << endl;
+        cin >> userInput;
+        if(userInput == 1 || userInput == 2 || userInput == 3 || userInput == 4 ){
+            break;
+        }
+    }
+    
+}
+
+void clickerGame(){
+    cout << "Welcome to the Clicker Game" << endl;
+    /*
+    while(1){
+        menu();
+        if(userInput == 1){
+            userShop.shopMenu();
+            
+        }
+    }
+    */
+}
+
 int main(){
-    Userdata myscore = Userdata();
-    cout << "My clicks:" << myscore.getUserClicks() << endl;
-    printf("My clicksMultiplier:%.02f\n" , myscore.getClickMulitplier());
-    printf("My passiveMultiplier:%.02f\n" , myscore.getPassiveMultiplier());
-
-    myscore.setClickMulitplier(1.25);
-    myscore.setPassiveMultiplier(1.25);
-    myscore.setUserClicks(to_string(12456432133));
-    cout << "\nMy clicks:" << myscore.getUserClicks() << endl;
-    printf("My clicksMultiplier:%.02f\n" , myscore.getClickMulitplier());
-    printf("My passiveMultiplier:%.02f\n" , myscore.getPassiveMultiplier());
-
-    myscore.addtoClickMulitplier(.75);
-    myscore.addtoPassiveMulitplier(.75);
-
+    clock_t start = clock();
     BigInt x("123472389473473897491");
     myscore.addtoUserClicks(x);
-    cout << "\nMy clicks:" << myscore.getUserClicks() << endl;
+    userShop.increaseStorePassiveMuliplier();
+    userShop.increaseStoreClickerMultiplier();
     printf("My clicksMultiplier:%.02f\n" , myscore.getClickMulitplier());
     printf("My passiveMultiplier:%.02f\n" , myscore.getPassiveMultiplier());
-
+    clock_t end = clock();
+    int elapsed = int (double(end - start)/CLOCKS_PER_SEC);
+    printf("\nTime measured: %i seconds.\n", elapsed);
     return 0;                                                                                               
 }

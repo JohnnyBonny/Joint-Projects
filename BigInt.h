@@ -2,12 +2,12 @@
 #define JOINT_PROJECTS_BIGINT_H
 #include <iostream>
 #include <vector>
-#include <time.h>
+//#include <time.h>
 #include <iterator>
 #include <iomanip>
-#include <map>
+//#include <map>
 #include <climits>
-
+#include "Userdata.h"
 using namespace std;
 
 
@@ -24,8 +24,10 @@ public:
 
     //overloading operators
     bool operator <(const BigInt &) const;
+    bool operator >(const BigInt &) const;
     bool operator ==(const BigInt &) const;
     bool operator ==(int);
+    bool operator>=(int);
     bool operator<=(const BigInt &) const;
     bool operator<=(int);
     BigInt operator++(int);
@@ -90,6 +92,35 @@ bool BigInt::operator < ( const BigInt &N) const{
     return result;
 }
 
+bool BigInt::operator > ( const BigInt &N) const{
+    bool result = false;
+
+    //if the first number is less than second, return true
+    if (v.size() > N.v.size()){
+        result = true;
+    }
+        //else, return false
+    else if (v.size() < N.v.size()){
+        result = false;
+    }
+        //if they are the same, return false
+    else if (*this == N){
+        return false;
+    }
+    else{
+        //if they're the same length, compare first digit
+        for (int i = (int)v.size() - 1; i > -1 ; i--){
+            if (v[i] > N.v[i]){
+                return true;
+            }
+            else if (v[i] < N.v[i]){
+                return false;
+            }
+        }
+    }
+    return result;
+}
+
 //returns true if both BigInts are equal
 bool BigInt::operator == (const BigInt &N) const {
     bool result = false;
@@ -115,6 +146,10 @@ bool BigInt::operator == (int n){
     return (*this) == N;
 }
 
+
+bool BigInt::operator>=(int n){
+    return (*this) <= (BigInt(n));
+}
 bool BigInt::operator<=( const BigInt &N) const
 {
     bool result = ((*this) == N || (*this) < N);
