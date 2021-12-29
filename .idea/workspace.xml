@@ -8,6 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750f4776-9d0e-420e-8bf4-bd124a9faf01" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clicker" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clickergame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/clickergame.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clickergame.exe" beforeDir="false" afterPath="$PROJECT_DIR$/clickergame.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,11 +42,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -56,6 +54,11 @@
       <workItem from="1640674835350" duration="137000" />
       <workItem from="1640675753760" duration="2243000" />
       <workItem from="1640678755914" duration="23000" />
+      <workItem from="1640730430809" duration="5000" />
+      <workItem from="1640730995696" duration="663000" />
+      <workItem from="1640742228506" duration="75000" />
+      <workItem from="1640742349662" duration="8000" />
+      <workItem from="1640742769922" duration="11000" />
     </task>
     <servers />
   </component>
